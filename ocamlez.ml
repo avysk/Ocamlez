@@ -37,7 +37,7 @@ let scale = 5.0
 
 let generations = 100000
 
-let rec draw_point point =
+let draw_point point =
   let x, y, z = point in
   let x' = size / 2 + int_of_float (scale *. (x -. z /. 2.0)) in
   let y' = size / 2 + int_of_float (scale *. (y -. z /. 2.0)) in
