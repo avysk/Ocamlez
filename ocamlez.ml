@@ -48,7 +48,13 @@ let rec do_it point dt = function
   | n -> let () = draw_point point in
       do_it (next point dt) dt (n - 1)
 
+let rec wait_close () =
+  try
+    let event = Graphics.wait_next_event [Graphics.Key_pressed] in
+    if event.Graphics.key <> '\027' then wait_close ()
+  with _ -> ()
+
 ;;
 let () = Graphics.open_graph (" " ^ ssize ^ "x" ^ ssize) in
 let () = do_it (0.01, 0.01, 0.01) 0.001 generations in
-read_line ()
+wait_close ()
