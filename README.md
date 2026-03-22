@@ -102,4 +102,4 @@ Default values (configurable via command line):
 
 ## License
 
-MIT
+BSD 2-Clause
